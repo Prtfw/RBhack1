@@ -3,37 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+
 </head>
 <body>
+
+    <h1>When Will I Get It?</h1>
+    <p>This app will tell you how much you need to save to be able to purchase your item of choice. It will also let you know how long it will take for you to be able to purchase it.</p>
     
+    <form>
+        <p>"What item are you saving for?"</p>
+        <input id='item'  type="text" name="item" value="i.e. iPhone 6"><br>
+        <p>How much does this item cost?</p>
+        <input id='amt'type="text" name="$" value="i.e. 500"><br>
+        <p>How much money do  you have now?</p>
+        <input id='now' type="text" name="$now" value="i.e. 100"><br>
+        <p>How much would you like to save per week?</p>
+        <input id='perT' type="text" name="$perWK" value="i.e. 10"><br><br>
+        <input id="btn" type="submit" value="submit">
+    </form>
+    
+    
+    
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 
+   <script>
+
+  var item = "";
+  var amt = 0;
+  var now = 0;
+  var perT = 0;
+  
+  var t2have = 0;
+  
+  
+    //;
+    $('#btn').click(function() {
+      item = $('#item').val();
+       amt = $('#amt').val();
+        now = $('#now').val();
+        perT = $('#perT').val();
+      
+      t2have = (amt-now)/perT
+       alert("you will have a " + item + " in " +t2have + " weeks.");
+
+    // return t2have;
+         $('body').prepend("<h1>" + "you will have a " + item + " in " +t2have + " weeks." + "</h1>");
+    });
+  
+  alert(t2have);
+  
+
+
+  
+  
+
+ 
+
+ 
+    // console.log("You will be able to purchase" + item + "in" + "of weeks.")
+
+
+
+    
+    
+    </script> 
     
     
     
-    
-    <script src="jquery-1.12.0.min.js"></script>
     
     <script> 
-      var item = prompt("what u saving for?", "i.e. iphone");
-      //alert(item)
+    //   var item = prompt("what u saving for?", "i.e. iphone");
+    //   //alert(item)
     
-      var $ = prompt("how much is " + item + " ?", "i.e. 500");
-      //alert($)
+    //   var $ = prompt("how much is " + item + " ?", "i.e. 500");
+    //   //alert($)
       
-      var $now = prompt("how much $ do you have saved now for " + item + " ?", "i.e. 20");
-      //console.log($now)
+    //   var $now = prompt("how much $ do you have saved now for " + item + " ?", "i.e. 20");
+    //   //console.log($now)
       
-      var $perWK = prompt("how are you saving per week?", "i.e. 50");
-      //console.log($perWK)
+    //   var $perWK = prompt("how are you saving per week?", "i.e. 50");
+    //   //console.log($perWK)
       
-      var t2have = ($-$now)/$perWK;
+    //   var t2have = ($-$now)/$perWK;
       
-      alert("you will have a " + item +" in " + t2have + " wks.");
-      console.log("you will have a " + item +" in " + t2have + " wks.");
+    //   alert("you will have a " + item +" in " + t2have + " wks.");
+    //   console.log("you will have a " + item +" in " + t2have + " wks.");
     
-    </script>
-
+    // </script>
+    
 </body>
 </html>
 
@@ -42,7 +100,7 @@
 <!-- the plan:
 
 
-MVP - 1 compelete:
+MVP - 1 complete! (GREAT SUCCESS!)
 
 1. prompt to ask for item they are saving for 
 
@@ -57,6 +115,30 @@ MVP - 1 compelete:
 6. output how long it will take 
 
 
+MVP - 2 
+
+1. make form 
+    a. nice tittle
+    b. nice description of what the app does
+    c. 3 input boxes for item, price, $ they have now, how much they wana save per x
+    d. dropdown for week/day/month
+    
+2. submit button that calls a function 
+3. the function that takes inputs from form as params and calculates
+    a. validates input params
+    b. throw error if not the right input
+    c. convert to integer?
+    d. output answer
+    
+4. nice output form 
+    a. hide form or push form down
+    b. unhide a vicotry image <div>
+    c. bonus: (with jquery animation)
+
+5. start again button to refresh the page from scratch
+
+
+
 Make it fancy: 
 
 1. make it look nice
@@ -67,6 +149,7 @@ Make it fancy:
 
 4. link to image of item?
 
+5. get their email?
 
 
 
