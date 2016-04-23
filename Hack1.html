@@ -6,20 +6,23 @@
 
 </head>
 <body>
+    
+    <h1 id="ans">   </h1>
 
     <h1>When Will I Get It?</h1>
-    <p>This app will tell you how much you need to save to be able to purchase your item of choice. It will also let you know how long it will take for you to be able to purchase it.</p>
+    <p>This app will tell you when you'll be able to purchase your item of choice.</p>
     
     <form>
         <p>"What item are you saving for?"</p>
         <input id='item'  type="text" name="item" value="i.e. iPhone 6"><br>
         <p>How much does this item cost?</p>
-        <input id='amt'type="text" name="$" value="i.e. 500"><br>
+        <input id='amt' type="number" name="$" value="500"><br>
         <p>How much money do  you have now?</p>
-        <input id='now' type="text" name="$now" value="i.e. 100"><br>
+        <input id='now' type="number" name="$now" value="200"><br>
         <p>How much would you like to save per week?</p>
-        <input id='perT' type="text" name="$perWK" value="i.e. 10"><br><br>
-        <input id="btn" type="submit" value="submit">
+        <input id='perT' type="number" name="$perWK" value="100"><br><br>
+        <!--<input id="btn" type="submit" value="submit">-->
+        <button id = 'btn' onclick="calc()"> Submit </button>
     </form>
     
     
@@ -28,6 +31,9 @@
 
 
    <script>
+document.getElementById("btn").addEventListener("click", function(event){
+    event.preventDefault()
+});
 
   var item = "";
   var amt = 0;
@@ -35,30 +41,56 @@
   var perT = 0;
   
   var t2have = 0;
-  
+    $('form').change(function() { 
+        
+        item = $('#item').val();
+         amt = $('#amt').val();
+         now = $('#now').val();
+         perT =$('#perT').val(); 
+         
+         t2have = (amt-now)/perT
+    })
+//   $('#item').change(function() { item = $('#item').val(); alert(item)});
+//     $('#amt').change(function() { amt = $('#amt').val(); alert(amt)});
+//   $('#now').change(function() { now = $('#now').val(); alert(now)});
+//   $('#perT').change(function() { perT = $('#perT').val(); alert(perT)});
+
   
     //;
-    $('#btn').click(function() {
-      item = $('#item').val();
-       amt = $('#amt').val();
-        now = $('#now').val();
-        perT = $('#perT').val();
+    // $('#btn').click(
+    //   // function() {calc();}
+    //     t2have = (amt-now)/perT
+    //     );
+   
+   
+  var calc = function() {
+
+//       item = $('#item').val();
+//       amt = $('#amt').val();
+//         now = $('#now').val();
+//         perT = $('#perT').val();
+
       
       t2have = (amt-now)/perT
-       alert("you will have a " + item + " in " +t2have + " weeks.");
+      //alert("you will have a " + item + " in " +t2have + " weeks.");
+      
+      if (typeof t2have == 'number' && t2have > 0){
+      $('#ans').text("you will have a " + item + " in " +t2have + " weeks.")
+      }
+      else{alert("check inputs")}
 
-    // return t2have;
-         $('body').prepend("<h1>" + "you will have a " + item + " in " +t2have + " weeks." + "</h1>");
-    });
-  
-  alert(t2have);
+    //  return t2have;
+    }
+
+ // alert(t2have);
   
 
-
+//"<h1>" + "you will have a " + item + " in " +t2have + " weeks." + "</h1>"
   
   
 
- 
+    //  alert(t2have)
+    // $('body').prepend(t2have);
 
  
     // console.log("You will be able to purchase" + item + "in" + "of weeks.")
