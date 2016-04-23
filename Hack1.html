@@ -6,5 +6,68 @@
 </head>
 <body>
     
+
+
+    
+    
+    
+    
+    <script src="jquery-1.12.0.min.js"></script>
+    
+    <script> 
+      var item = prompt("what u saving for?", "i.e. iphone");
+      //alert(item)
+    
+      var $ = prompt("how much is " + item + " ?", "i.e. 500");
+      //alert($)
+      
+      var $now = prompt("how much $ do you have saved now for " + item + " ?", "i.e. 20");
+      //console.log($now)
+      
+      var $perWK = prompt("how are you saving per week?", "i.e. 50");
+      //console.log($perWK)
+      
+      var t2have = ($-$now)/$perWK;
+      
+      alert("you will have a " + item +" in " + t2have + " wks.");
+      console.log("you will have a " + item +" in " + t2have + " wks.");
+    
+    </script>
+
 </body>
 </html>
+
+
+
+<!-- the plan:
+
+
+MVP - 1 compelete:
+
+1. prompt to ask for item they are saving for 
+
+2. ask for how much it it 
+
+3. ask for how much $ they have now
+
+4. ask for how much they are saving each day/week
+
+5. a submit button that does the calclation 
+
+6. output how long it will take 
+
+
+Make it fancy: 
+
+1. make it look nice
+
+2. add date to mvp step 5
+
+3. add animation (i.e. show happy face)
+
+4. link to image of item?
+
+
+
+
+-->
