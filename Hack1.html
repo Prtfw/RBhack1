@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,98 +6,90 @@
 
 </head>
 <body>
-    
-    <h1 id="ans">   </h1>
+        <!--this h1 show the answer, after successful submission -->
 
+    <h1 id="ans">   </h1> 
+    
+        <!--this div shows giphy of happy minions, after successful submission-->
+    <div id="yay" style="display: none;">
+            <iframe id="yay"  src="//giphy.com/embed/11sBLVxNs7v6WA" width="480" height="216" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/cheer-cheering-11sBLVxNs7v6WA">via GIPHY</a></p>
+    </div>
+    
+       <!--rest of the code Ofie wrote-->
     <h1>When Will I Get It?</h1>
     <p>This app will tell you when you'll be able to purchase your item of choice.</p>
     
+    
+        <!--form to get user inputs-->
     <form>
-        <p>"What item are you saving for?"</p>
-        <input id='item'  type="text" name="item" value="i.e. iPhone 6"><br>
+        <p>"What item are you saving for? e.g."</p>
+        <input id='item'  type="text" name="item" value="purple hippo"><br>
         <p>How much does this item cost?</p>
         <input id='amt' type="number" name="$" value="500"><br>
         <p>How much money do  you have now?</p>
         <input id='now' type="number" name="$now" value="200"><br>
-        <p>How much would you like to save per week?</p>
-        <input id='perT' type="number" name="$perWK" value="100"><br><br>
-        <!--<input id="btn" type="submit" value="submit">-->
+        <p>How much would you like to save per ...?</p>
+        <input id='perT' type="number" name="$perWK" value="100">
+
+        <select id="t">
+              <option value="weeks">Week</option>
+              <option value="months">Month</option>
+              <option value="days">Day</option>
+        </select>
+
+        <!--this button calls the calc function and triggers calculations-->
         <button id = 'btn' onclick="calc()"> Submit </button>
     </form>
     
     
-    
+    <!--Obligatory Jquery link-->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 
-   <script>
+<script>
+
+// the line below prevents form submission from refreshing page, so we can see jquery working
 document.getElementById("btn").addEventListener("click", function(event){
     event.preventDefault()
 });
 
+// define vars
   var item = "";
   var amt = 0;
   var now = 0;
   var perT = 0;
-  
   var t2have = 0;
+  
+// when something changes on the form, we update the variable values
     $('form').change(function() { 
         
         item = $('#item').val();
          amt = $('#amt').val();
          now = $('#now').val();
          perT =$('#perT').val(); 
+         t = $('#t').val()
          
          t2have = (amt-now)/perT
     })
-//   $('#item').change(function() { item = $('#item').val(); alert(item)});
-//     $('#amt').change(function() { amt = $('#amt').val(); alert(amt)});
-//   $('#now').change(function() { now = $('#now').val(); alert(now)});
-//   $('#perT').change(function() { perT = $('#perT').val(); alert(perT)});
 
-  
-    //;
-    // $('#btn').click(
-    //   // function() {calc();}
-    //     t2have = (amt-now)/perT
-    //     );
    
-   
+// this function is called when form gets submitted and either shows the answer via jquery + the happy minion giphy OR asks for input check
   var calc = function() {
-
-//       item = $('#item').val();
-//       amt = $('#amt').val();
-//         now = $('#now').val();
-//         perT = $('#perT').val();
-
-      
       t2have = (amt-now)/perT
       //alert("you will have a " + item + " in " +t2have + " weeks.");
       
       if (typeof t2have == 'number' && t2have > 0){
-      $('#ans').text("you will have a " + item + " in " +t2have + " weeks.")
+          
+      // shows the anser div, the minion giphy and hides the form
+      $('#ans').text("you will have a " + item + " in " +t2have + " " + t + ".")
+      $('#yay').show()
+      $('form').hide()
       }
-      else{alert("check inputs")}
+      
+      else{alert("check inputs: did you change anything?")}
 
-    //  return t2have;
+
     }
-
- // alert(t2have);
-  
-
-//"<h1>" + "you will have a " + item + " in " +t2have + " weeks." + "</h1>"
-  
-  
-
-    //  alert(t2have)
-    // $('body').prepend(t2have);
-
- 
-    // console.log("You will be able to purchase" + item + "in" + "of weeks.")
-
-
-
-    
     
     </script> 
     
@@ -132,57 +124,67 @@ document.getElementById("btn").addEventListener("click", function(event){
 <!-- the plan:
 
 
-MVP - 1 complete! (GREAT SUCCESS!)
+MVP - 1 complete!(GREAT SUCCESS!)
 
-1. prompt to ask for item they are saving for 
+1. prompt to ask
+for item they are saving
+for
 
-2. ask for how much it it 
+2. ask
+for how much it it
 
-3. ask for how much $ they have now
+3. ask
+for how much $ they have now
 
-4. ask for how much they are saving each day/week
+4. ask
+for how much they are saving each day / week
 
-5. a submit button that does the calclation 
+5. a submit button that does the calclation
 
-6. output how long it will take 
+6. output how long it will take
 
 
-MVP - 2 
+MVP - 2
 
-1. make form 
-    a. nice tittle
-    b. nice description of what the app does
-    c. 3 input boxes for item, price, $ they have now, how much they wana save per x
-    d. dropdown for week/day/month
-    
-2. submit button that calls a function 
-3. the function that takes inputs from form as params and calculates
-    a. validates input params
-    b. throw error if not the right input
-    c. convert to integer?
-    d. output answer
-    
-4. nice output form 
-    a. hide form or push form down
-    b. unhide a vicotry image <div>
-    c. bonus: (with jquery animation)
+x 1. make form
+a.nice tittle
+b.nice description of what the app does
+c.3 input boxes
+for item, price, $ they have now, how much they wana save per x
+d.dropdown
+for week / day / month
+
+x 2. submit button that calls a
+function
+x 3. the
+function that takes inputs from form as params and calculates
+a.validates input params
+b.throw error
+if not the right input
+c.convert to integer ?
+    d.output answer
+
+    >>> > 4. nice output form
+x a.hide form or push form down
+x b.unhide a vicotry image < div >
+    c.bonus: (with jquery animation)
 
 5. start again button to refresh the page from scratch
 
 
 
-Make it fancy: 
+Make it fancy:
 
-1. make it look nice
+    1. make it look nice
 
 2. add date to mvp step 5
 
-3. add animation (i.e. show happy face)
+3. add animation(i.e.show happy face)
 
-4. link to image of item?
+4. link to image of item ?
 
-5. get their email?
+    5. get their email ?
 
 
 
--->
+    -->
