@@ -22,14 +22,14 @@
     
         <!--form to get user inputs-->
     <form>
-        <p>"What item are you saving for? e.g."</p>
-        <input id='item'  type="text" name="item" value="purple hippo"><br>
+        <p>What item are you saving for? e.g. iPhone 6</p>
+        <input id='item'  type="text" name="item" value="e.g. iPhone 6"><br>
         <p>How much does this item cost?</p>
-        <input id='amt' type="number" name="$" value="500"><br>
+        <input id='amt' type="number" name="$" value="e.g. 500"><br>
         <p>How much money do  you have now?</p>
-        <input id='now' type="number" name="$now" value="200"><br>
+        <input id='now' type="number" name="$now" value="e.g. 200"><br>
         <p>How much would you like to save per ...?</p>
-        <input id='perT' type="number" name="$perWK" value="100">
+        <input id='perT' type="number" name="$perWK" value="e.g. 100">
 
         <select id="t">
               <option value="weeks">Week</option>
@@ -47,12 +47,10 @@
 
 
 <script>
-
 // the line below prevents form submission from refreshing page, so we can see jquery working
 document.getElementById("btn").addEventListener("click", function(event){
     event.preventDefault()
 });
-
 // define vars
   var item = "";
   var amt = 0;
@@ -71,7 +69,6 @@ document.getElementById("btn").addEventListener("click", function(event){
          
          t2have = (amt-now)/perT
     })
-
    
 // this function is called when form gets submitted and either shows the answer via jquery + the happy minion giphy OR asks for input check
   var calc = function() {
@@ -87,8 +84,6 @@ document.getElementById("btn").addEventListener("click", function(event){
       }
       
       else{alert("check inputs: did you change anything?")}
-
-
     }
     
     </script> 
@@ -120,32 +115,21 @@ document.getElementById("btn").addEventListener("click", function(event){
 </html>
 
 
-
+/*
 <!-- the plan:
-
-
 MVP - 1 complete!(GREAT SUCCESS!)
-
 1. prompt to ask
 for item they are saving
 for
-
 2. ask
 for how much it it
-
 3. ask
 for how much $ they have now
-
 4. ask
 for how much they are saving each day / week
-
 5. a submit button that does the calclation
-
 6. output how long it will take
-
-
 MVP - 2
-
 x 1. make form
 a.nice tittle
 b.nice description of what the app does
@@ -153,7 +137,6 @@ c.3 input boxes
 for item, price, $ they have now, how much they wana save per x
 d.dropdown
 for week / day / month
-
 x 2. submit button that calls a
 function
 x 3. the
@@ -163,28 +146,15 @@ b.throw error
 if not the right input
 c.convert to integer ?
     d.output answer
-
     >>> > 4. nice output form
 x a.hide form or push form down
 x b.unhide a vicotry image < div >
     c.bonus: (with jquery animation)
-
 5. start again button to refresh the page from scratch
-
-
-
 Make it fancy:
-
     1. make it look nice
-
 2. add date to mvp step 5
-
 3. add animation(i.e.show happy face)
-
 4. link to image of item ?
-
     5. get their email ?
-
-
-
     -->
