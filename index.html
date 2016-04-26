@@ -5,6 +5,9 @@
     <title>Document</title>
 
 </head>
+
+<nav></nav>
+
 <body>
         <!--this h1 show the answer, after successful submission -->
 
@@ -16,11 +19,13 @@
     </div>
     
        <!--rest of the code Ofie wrote-->
+       
+       <div class='container'>
     <h1>When Will I Get It?</h1>
     <p>This app will tell you when you'll be able to purchase your item of choice.</p>
     
-    
         <!--form to get user inputs-->
+        
     <form>
         <p>What item are you saving for? e.g. iPhone 6</p>
         <input id='item'  type="text" name="item" value="e.g. iPhone 6"><br>
@@ -40,10 +45,12 @@
         <!--this button calls the calc function and triggers calculations-->
         <button id = 'btn' onclick="calc()"> Submit </button>
     </form>
-    
+        </div>
+
     
     <!--Obligatory Jquery link-->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 
 <script>
